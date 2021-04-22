@@ -1,0 +1,21 @@
+body,html{
+    margin:0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.container-styles{
+  min-height: 100vh;
+}
+img{
+  transition: opacity 0.5s;
+}
+img:hover{
+  opacity: 0.5;
+}
+
+.hover-card{
+  transition: transform 0.3s;
+}
+.hover-card:hover{
+  transform: translateY(-3px);
+}
