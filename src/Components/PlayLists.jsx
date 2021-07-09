@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, {useEffect } from "react";
+import { animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { PlayListsStyles } from "../Styles/PlayListsStyles";
 import PlayListCard from "./PlayListCard";
 const PlayLists = ({ Responsive, DarkModeState, Courses }) => {
+  useEffect(() => {
+    scroll.scrollToTop();
+  }, []);
   const { NameRoute } = useParams();
-
   window.addEventListener("load", () => {
     window.location.href = "/";
   });

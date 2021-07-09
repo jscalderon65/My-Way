@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { animateScroll as scroll } from "react-scroll";
 import { connect } from "react-redux";
 import RouteCard from "./RouteCard";
 import { BackTop, Spin } from "antd";
 import { RoutesStyles } from "../Styles/RoutesStyles";
 const Routes = ({ Responsive, Routes, DarkModeState }) => {
+  useEffect(() => {
+    scroll.scrollToTop();
+  }, []);
   return Routes.length > 0 ? (
      <div style={RoutesStyles(Responsive, DarkModeState)}>
       <BackTop />

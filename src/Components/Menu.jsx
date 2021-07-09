@@ -39,13 +39,13 @@ const Menu = ({ ButtonStyles, DarkModeState, changeDarkMode }) => {
         bodyStyle={bodyStyles}
         title={null}
         placement={"left"}
-        closable={true}
+        closable={false}
         onClose={OpenClose}
         visible={visible}
       >
         <div style={TitleStyles}>
           <Title style={{ color: DarkModeState === true ? "white" : "black" }}>
-            Opciones
+            Menú
           </Title>
         </div>
         <div style={ButtonsStyles}>{CreateButton(NameRoute)}</div>

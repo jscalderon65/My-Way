@@ -26,7 +26,7 @@ const Profile = ({ ButtonStyles, DarkModeState }) => {
         bodyStyle={bodyStyles}
         title={null}
         placement={"right"}
-        closable={true}
+        closable={false}
         onClose={OpenClose}
         visible={visible}
       >

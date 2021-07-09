@@ -6,36 +6,23 @@ import Profile from "./Profile";
 import Menu from "./Menu";
 import { HeaderStyles } from "../Styles/HeaderStyles";
 import { Typography } from "antd";
-const { Title } = Typography;
+import { useHistory } from "react-router-dom";
 
-const Header = ({ Responsive, DarkModeState }) => {
-  const {
-    AddButtonStyles,
-    TitleStyles,
-    ProfileStyles,
-    MenuStyles,
-  } = HeaderStyles(Responsive);
+const Header = ({DarkModeState}) => {
+  const { AddButtonStyles, TitleStyles } = HeaderStyles();
+  const history = useHistory();
   const { NameRoute } = useParams();
   const HeaderTitle = NameRoute === undefined ? "Rutas" : NameRoute;
-  const Size =
-    HeaderTitle === "Rutas" || HeaderTitle.length < 8
-      ? 2
-      : Responsive === true
-      ? 5
-      : 3;
+  const goBack = () => {
+    history.push("/");
+  };
   return (
-    <div style={HeaderStyles(Responsive, DarkModeState)}>
-      <div style={MenuStyles}>
-        <Menu ButtonStyles={AddButtonStyles} />
-        <Link to={"/"}>
-          <Title level={Size} style={TitleStyles}>
-            {HeaderTitle}
-          </Title>
-        </Link>
-      </div>
-      <div style={ProfileStyles}>
-        <Profile ButtonStyles={AddButtonStyles} />
-      </div>
+    <div style={HeaderStyles(DarkModeState)}>
+      <Menu ButtonStyles={AddButtonStyles} />
+      <div style={TitleStyles} onClick={goBack}>
+          {HeaderTitle !== "Rutas" ? <i class="fas fa-home"></i> : HeaderTitle}
+        </div>
+      <Profile ButtonStyles={AddButtonStyles} />
     </div>
   );
 };
